@@ -62,7 +62,8 @@
     
    
     //Get Database from www directory
-    NSString *wwwDir = [[[NSBundle mainBundle] bundlePath] stringByAppendingPathComponent:@"www"];
+    NSArray *cachePathArray = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *wwwDir = [cachePathArray lastObject];
     NSString *dbPathFromApp = [wwwDir stringByAppendingPathComponent:dbname];
 
     NSLog(@"[sqlDB] Source: %@",dbPathFromApp);
